@@ -58,10 +58,10 @@ libmm-venc-inc      := bionic/libc/include
 libmm-venc-inc      += bionic/libstdc++/include
 libmm-venc-inc      += $(LOCAL_PATH)/inc
 libmm-venc-inc      += $(OMX_VIDEO_PATH)/vidc/common/inc
-libmm-venc-inc      += hardware/qcom/media-legacy/mm-core/inc
+libmm-venc-inc      += $(call project-path-for,qcom-media)/mm-core/inc
 libmm-venc-inc      += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-libmm-venc-inc      += hardware/qcom/media-legacy/libstagefrighthw
-libmm-venc-inc      += hardware/qcom/display-legacy/libgralloc
+libmm-venc-inc      += $(call project-path-for,qcom-media)/libstagefrighthw
+libmm-venc-inc      += $(call project-path-for,qcom-display)/libgralloc
 libmm-venc-inc      += frameworks/native/include/media/hardware
 libmm-venc-inc      += frameworks/native/include/media/openmax
 
@@ -98,8 +98,8 @@ include $(CLEAR_VARS)
 mm-venc-test720p-inc            := $(TARGET_OUT_HEADERS)/mm-core
 mm-venc-test720p-inc            += $(LOCAL_PATH)/inc
 mm-venc-test720p-inc            += $(OMX_VIDEO_PATH)/vidc/common/inc
-mm-venc-test720p-inc            += hardware/qcom/media-legacy/mm-core/inc
-mm-venc-test720p-inc            += hardware/qcom/display-legacy/libgralloc
+mm-venc-test720p-inc            += $(call project-path-for,qcom-media)/mm-core/inc
+mm-venc-test720p-inc            += $(call project-path-for,qcom-display)/libgralloc
 
 LOCAL_MODULE                    := mm-venc-omx-test720p
 LOCAL_MODULE_TAGS               := optional
@@ -125,12 +125,12 @@ include $(BUILD_EXECUTABLE)
 include $(CLEAR_VARS)
 
 venc-test-inc                   += $(LOCAL_PATH)/inc
-venc-test-inc                   += hardware/qcom/display-legacy/libgralloc
+venc-test-inc                   += $(call project-path-for,qcom-display)/libgralloc
 
 LOCAL_MODULE                    := mm-video-encdrv-test
 LOCAL_MODULE_TAGS               := optional
 LOCAL_C_INCLUDES                := $(venc-test-inc)
-LOCAL_C_INCLUDES                += hardware/qcom/media-legacy/mm-core/inc
+LOCAL_C_INCLUDES                += $(call project-path-for,qcom-media)/mm-core/inc
 
 LOCAL_ADDITIONAL_DEPENDENCIES   := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 LOCAL_PRELINK_MODULE            := false
